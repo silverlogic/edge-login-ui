@@ -60,6 +60,7 @@ export function loginWithRecovery (answers: Array<string>, username: string) {
         account,
         touchIdInformation
       }
+      loginMonitor(account)
       dispatch(dispatchActionWithData(Constants.LOGIN_RECOVERY_SUCCEESS, obj))
     } catch (e) {
       console.log('there was an error')
