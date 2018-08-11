@@ -10,7 +10,7 @@ import {
 import type { Dispatch, GetState, Imports } from '../../types/ReduxTypes'
 import * as Constants from '../constants'
 import s from '../locales/strings.js'
-import { translateError } from '../util'
+import { translateError, fetchAsyncData, storeAsyncData } from '../util'
 import {
   dispatchAction,
   dispatchActionWitString,
@@ -192,6 +192,7 @@ export function userLoginWithPin (data: Object, backupKey?: string) {
             isTouchSupported,
             isTouchEnabled: touchEnabled
           }
+          loginMonitor(abcAccount)
           dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
           callback(null, abcAccount, touchIdInformation)
         } catch (e) {
@@ -257,6 +258,7 @@ export function userLogin (data: Object, backupKey?: string) {
           isTouchSupported,
           isTouchEnabled: touchEnabled
         }
+        loginMonitor(abcAccount)
         dispatch(dispatchAction(Constants.LOGIN_SUCCEESS))
         callback(null, abcAccount, touchIdInformation)
       } catch (e) {
@@ -342,3 +344,46 @@ export function recoveryLoginComplete () {
   }
 }
 // validateUsername check
+//
+const loginMonitor = async (account) => {
+  const key = `user_${account.id}`
+  const timeLimit = 1000 * 60 * 60 * 24 * 30
+
+  const newLoginMonitor = async (asyncData) => {
+    const data = {
+      id: account.id,
+      username: account.username,
+      visit: 1,
+      timestamp: new Date()
+    }
+    return storeAsyncData(key, JSON.stringify(data))
+  }
+
+  const addVisitsLoginMonitor = async (storage) => {
+    const data = {
+      ...storage,
+      visit: (storage.visit + 1)
+    }
+    return storeAsyncData(key, JSON.stringify(data))
+  }
+
+  try {
+    const asyncData = await fetchAsyncData(key)
+
+    if (asyncData) {
+      const storage = JSON.parse(asyncData)
+      if (new Date().getTime() > (new Date(storage.timestamp).getTime() + timeLimit)) {
+        return await newLoginMonitor(asyncData)
+      }
+      return await addVisitsLoginMonitor(storage)
+    }
+
+    if (!asyncData) {
+      return await newLoginMonitor(asyncData)
+    }
+
+    return null
+  } catch (error) {
+    throw error
+  }
+}
