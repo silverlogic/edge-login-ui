@@ -2955,6 +2955,13 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
+edge-components@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/edge-components/-/edge-components-0.0.9.tgz#8297f624acbc9a46f9467db97ca82d4baa3559a3"
+  integrity sha512-2gMbxkb+ktfJiQ2DLIYzpiCC99LfkA32BGPFMLgYnaKJ5o4ec0FeRSkjKuNBdyzK5/7uGQYXD5/FijEiwFz2rg==
+  dependencies:
+    react-native-linear-gradient "^2.4.0"
+
 edge-core-js@^0.12.4:
   version "0.12.4"
   resolved "https://registry.yarnpkg.com/edge-core-js/-/edge-core-js-0.12.4.tgz#b0c5ded56432735f60b142590b2ba9f6a0f2e2e0"
@@ -7574,6 +7581,11 @@ react-native-linear-gradient@^2.0.0:
   integrity sha512-h4nwmcjfeedSiHGBmQkMmCSIqm3196YtT1AtbAqE93jgAcpib0btvoCx8nBUemmhfm+CA5mFEh8p5biA4wFw/A==
   dependencies:
     prop-types "^15.5.10"
+
+react-native-linear-gradient@^2.4.0:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.4.3.tgz#a7f5fe685b1a2ac788cca37828c5c9ca91357a16"
+  integrity sha512-c1V5HMz9RWMaHA6hHQmwQqWNDJAGdhQG52Ht3wxp7XIAnqK4eJhPnuEjp6zI40eqYVqzmenZ8dU/PgXUVpg2ZQ==
 
 react-native-mail@^3.0.5:
   version "3.0.6"

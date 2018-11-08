@@ -17,14 +17,13 @@ export const CLOSE_ICON = 'close'
 export const MAIL = 'ios-mail-outline'
 export const UNLOCKED_ICON = 'ios-unlock-outline'
 export const LOCKED_ICON = 'ios-lock-outline'
-// Materieal
+// Material
 export const MATERIAL_ICONS = 'material'
 export const KEYBOARD_ARROW_DOWN = 'keyboard-arrow-down'
 export const KEYBOARD_ARROW_UP = 'keyboard-arrow-up'
 export const SWAP_VERT = 'swap-vert'
 export const SWAP_HORIZ = 'swap-horiz'
 export const EXCLAMATION = 'exclamation'
-
 //
 export const MATERIAL_COMMUNITY = 'materialCommunity'
 export const EVIL_ICONS = 'EvilIcons'

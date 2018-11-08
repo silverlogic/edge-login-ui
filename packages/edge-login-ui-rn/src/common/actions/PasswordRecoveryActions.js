@@ -1,8 +1,17 @@
 // @flow
 
+import {
+  Icon,
+  InputAndButtons,
+  createInputModal,
+  showModal
+} from 'edge-components'
+import React from 'react'
+
 import * as actions from '../../common/actions'
 import * as Constants from '../../common/constants'
 import type { Dispatch, GetState, Imports } from '../../types/ReduxTypes'
+import s from '../locales/strings.js'
 
 export function recoverPasswordLogin () {
   return async (dispatch: Dispatch, getState: GetState, imports: Imports) => {
@@ -165,6 +174,49 @@ export function changeRecoveryAnswers (
     }
     try {
       const recoveryKey = await account.changeRecovery(questions, answers)
+      const state = getState()
+      const props = {
+        username: returnTrunatedUsername(state.login.username),
+        backupKey: state.passwordRecovery.recoveryKey,
+
+      }
+      const input = {
+        label: 'Email Address',
+        autoCorrect: false,
+        label: s.strings.email_address,
+        error: '',
+        returnKeyType: 'go',
+        forceFocus: true,
+        onSubmit: (this) => openEmailApp(props, this, dispatch)
+      }
+      const yesButton = {
+        title: 'Next'
+      }
+      const noButton = {
+        title: 'Cancel'
+      }
+      const emailInputModal = createInputModal({
+        icon: (
+          <Icon
+            type={Constants.MATERIAL_COMMUNITY}
+            name={Constants.EXCLAMATION}
+            size={30}
+          />
+        ),
+        title: s.strings.otp_email_subject,
+        message: s.strings.recovery_instructions_complete,
+        footer: (
+          <InputAndButtons
+            yesButton={yesButton}
+            noButton={noButton}
+            input={input}
+          />
+        )
+      })
+      const resolveValue = await showModal(emailInputModal)
+      if (resolveValue) {
+        console.log('Positive button pressed')
+      }
       dispatch(
         actions.dispatchActionWitString(Constants.ON_RECOVERY_KEY, recoveryKey)
       )
@@ -174,4 +226,48 @@ export function changeRecoveryAnswers (
       console.log(e.message)
     }
   }
+}
+
+export const openEmailApp = (props, state, dispatch) => {
+  const body =
+    s.strings.otp_email_body +
+    props.username +
+    '<br><br>' +
+    'iOS <br>edge://recovery?token=' +
+    backupKey +
+    '<br><br>' +
+    'Android https://recovery.edgesecure.co/recovery?token=' +
+    backupKey
+
+  Mailer.mail(
+    {
+      subject: s.strings.otp_email_subject,
+      recipients: [value],
+      body: body,
+      isHTML: true
+    },
+    (error, event) => {
+      if (error) {
+        console.log(error)
+        this.setState({
+          emailAppNotAvailable: true
+        })
+      }
+      if (event === 'sent') {
+        dispatch(props.returnToSettings())
+      }
+    }
+  )
+  if (Platform.OS === 'android') {
+    setTimeout(() => {
+      dispatch(props.returnToSettings())
+    }, 1000)
+  }
+}
+
+function returnTrunatedUsername (arg) {
+  if (arg) {
+    return arg.charAt(0) + arg.charAt(1) + '***'
+  }
+  return arg
 }
