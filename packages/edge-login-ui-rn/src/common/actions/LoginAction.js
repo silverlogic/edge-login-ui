@@ -1,6 +1,14 @@
 // @flow
 
 import {
+  createSimpleConfirmModal,
+  createThreeButtonModal,
+  createYesNoModal
+} from 'edge-components'
+import React from 'react'
+
+import { ModalIcon as Icon } from '../../native/components/common'
+import {
   enableTouchId,
   isTouchDisabled,
   isTouchEnabled,
@@ -10,7 +18,7 @@ import {
 import type { Dispatch, GetState, Imports } from '../../types/ReduxTypes'
 import * as Constants from '../constants'
 import s from '../locales/strings.js'
-import { translateError } from '../util'
+import { showModal, translateError } from '../util'
 import {
   dispatchAction,
   dispatchActionWitString,
