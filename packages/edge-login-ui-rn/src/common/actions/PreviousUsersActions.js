@@ -1,7 +1,7 @@
 // @flow
 
 import type { DiskletFolder } from 'disklet'
-import type { EdgeContext } from 'edge-core-js'
+import type { EdgeContext } from 'edge-core-js/types'
 
 import { isTouchEnabled } from '../../native/keychain'
 import type { Dispatch, GetState, Imports } from '../../types/ReduxTypes'
