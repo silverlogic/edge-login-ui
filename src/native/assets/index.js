@@ -2,7 +2,7 @@
 
 const LOGIN_BACKGROUND = require('./login_bg.jpg')
 const LOGO_DOT = require('./logoHolderDot.png')
-const LOGO_BIG = require('./btcoaLogo/btoca-logo.png')
+const LOGO_BIG = require('./btcoaLogo/btcoa-logo.png')
 const LOGO_SMALL = require('./btcoaLogo/btcoa-logo.png')
 const REVIEW_CHECKED = require('./icons/review/check.png')
 const REVIEW_UNCHECKED = require('./icons/review/unchecked.png')
