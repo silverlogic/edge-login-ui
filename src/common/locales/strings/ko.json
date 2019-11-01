@@ -1,5 +1,5 @@
 {
-  "app_name_default": "Edge",
+  "app_name_default": "Bitcoin of America",
   "edge_site": "https://edge.app/",
   "login_button": "로그인",
   "username": "사용자명",
@@ -92,8 +92,8 @@
   "otp_instructions": "2단계 인정을 설정한 장치로 계정에 로그인하여, 설정페이지를 열어 2단계 인증코드를 찾으십시오.",
   "disable_otp_button_two": "2단계 인증 비활성화",
   "type_auth_button": "인증코드를 대신 입력",
-  "otp_email_body": "Edge가 설치되어있는 스마트폰 장치를 사용하여 하단의 링크를 눌러 사용자명을 사용하는 계정복구를 하십시오. ",
-  "otp_email_subject": "Edge 복구 토큰",
+  "otp_email_body": "Bitcoin of America가 설치되어있는 스마트폰 장치를 사용하여 하단의 링크를 눌러 사용자명을 사용하는 계정복구를 하십시오. ",
+  "otp_email_subject": "Bitcoin of America 복구 토큰",
   "recovery_disabled": "암호로 인한 복구가 무효화되었습니다. 암호복구 페이지를 통해 언제든지 다시 설정을 변경할 수 있습니다.",
   "recovery_what_account": "복구하고 싶은 계정의 사용자명을 입력하십시오.",
   "email_address": "이메일 주소",

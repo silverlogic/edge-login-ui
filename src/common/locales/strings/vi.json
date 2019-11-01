@@ -92,7 +92,7 @@
   "otp_instructions": "Đăng nhập vào tài khoản của bạn để sử dụng các thiết bị bạn thiết lập 2FA với, và đi đến cài đặt > 2 yếu tố xác thực để tìm các mã.",
   "disable_otp_button_two": "Vô hiệu hóa xác thực 2 yếu tố",
   "type_auth_button": "Nhập vào mã số xác thực thay thế",
-  "otp_email_body": "Xin vui lòng nhấp vào liên kết dưới đây từ một điện thoại di động với Edge được cài đặt để bắt đầu khôi phục tài khoản cho người dùng ",
+  "otp_email_body": "Xin vui lòng nhấp vào liên kết dưới đây từ một điện thoại di động với Bitcoin of America được cài đặt để bắt đầu khôi phục tài khoản cho người dùng ",
   "otp_email_subject": "Mã khôi phục dự phòng",
   "recovery_disabled": "Khôi phục mật khẩu đã bị vô hiệu hoá. Bạn có thể bật lại bằng cách đi vào mật khẩu phục hồi bất cứ lúc nào",
   "recovery_what_account": "Vui lòng nhập tên đăng nhập của tài khoản bạn muốn khôi phục.",

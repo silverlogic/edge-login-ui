@@ -1,7 +1,7 @@
 // @flow
 const strings = {
-  app_name_default: 'Edge',
-  edge_site: 'https://edge.app/',
+  app_name_default: 'Bitcoin of America',
+  edge_site: 'https://www.bitcoinofamerica.org',
   login_button: 'Login',
   username: 'Username',
   password: 'Password',
@@ -112,8 +112,8 @@ const strings = {
   disable_otp_button_two: 'Disable 2 Factor Authentication',
   type_auth_button: 'Type in authentication code instead',
   otp_email_body:
-    'Please click the link below from a mobile device with Edge installed to initiate account recovery for username ',
-  otp_email_subject: 'Edge Recovery Token',
+    'Please click the link below from a mobile device with Bitcoin of America installed to initiate account recovery for username ',
+  otp_email_subject: 'Bitcoin of America Recovery Token',
   recovery_disabled:
     'Password Recovery has been disabled. You can enable it again by going into Password Recovery anytime',
   recovery_what_account:
