@@ -13,7 +13,7 @@ const NewAccountWelcomeScreenStyle = {
     flexDirection: 'row'
   },
   row2: { ...Styles.ScreenRow, flex: 4 },
-  row3: { ...Styles.ScreenRow, flex: 3 },
+  row3: { ...Styles.ScreenRow, flex: 4 },
   row4: { ...Styles.ScreenRow, flex: 3 },
   row5: { ...Styles.ScreenRow, flex: 1 },
   row6: {
